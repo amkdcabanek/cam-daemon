@@ -28,12 +28,18 @@ def generate_frames():
         # Convert from BGR to RGB if needed (depends on your picamera2 output)
         if frame is not None:
             frame = frame[100:,450:-500,:]
-            # Add text overlay
-            cv2.putText(frame, '|---|', (860, 900), cv2.FONT_HERSHEY_SIMPLEX, 
-                        1, (255, 255, 255), 2, cv2.LINE_AA)
+            
+            # Draw a line representing exactly 100 μm (60 pixels)
+            cv2.line(frame, (860, 900), (920, 900), (255, 255, 255), 2)
+            
+            # Add vertical bars at the ends of the line
+            cv2.line(frame, (860, 895), (860, 905), (255, 255, 255), 2)  # Left end
+            cv2.line(frame, (920, 895), (920, 905), (255, 255, 255), 2)  # Right end
 
-            cv2.putText(frame, '122,84um', (790, 950), cv2.FONT_HERSHEY_SIMPLEX, 
+            # Update text to show 100 μm
+            cv2.putText(frame, '100 μm', (870, 950), cv2.FONT_HERSHEY_SIMPLEX, 
                         1, (255, 255, 255), 2, cv2.LINE_AA)
+            
             #add "+" on the center
             cv2.putText(frame, '+', (470,550), cv2.FONT_HERSHEY_SIMPLEX,
                         2, (255,255,255), 3, cv2.LINE_AA)

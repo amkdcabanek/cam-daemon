@@ -46,7 +46,7 @@ pip install -r requirements.txt
 5. **Access the Stream**: Open a web browser on another device connected to the same network and enter the Raspberry Pi's IP address followed by `:8000`. For example:
 
    ```
-   http://192.168.1.100:5000
+   http://192.168.1.100:8000
    ```
 
 ## Customization
